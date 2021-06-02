@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Pagination } from 'antd';
 import UserTable from "../../components/Table/UserTable"
 
 export default function Users() {
@@ -18,7 +19,11 @@ export default function Users() {
                 })
         }
         fetchUsers();
-    }, [])
+    }, [currentPage, setCurrentPage])
+
+    const paginate = (page) => {
+        setCurrentPage(page)
+    };
 
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
@@ -28,6 +33,12 @@ export default function Users() {
     return (
         <>
             < UserTable users={currentUser} loading={loading} />
+            <Pagination
+                current={currentPage}
+                total={users.length}
+                pageSize={usersPerPage}
+                onChange={paginate}
+            />
         </>
     )
 }
