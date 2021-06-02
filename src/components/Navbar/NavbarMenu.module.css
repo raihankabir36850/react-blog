@@ -1,0 +1,8 @@
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.navbarMenu {
+  border-bottom: none !important ;
+  line-height: 52px !important;
+}
