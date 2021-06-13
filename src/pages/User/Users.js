@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react"
 import { Pagination } from 'antd';
 import UserTable from "../../components/Table/UserTable"
 
+const PaginationStyle = {
+    textAlign: "center",
+    margin: "20px"
+}
+
 export default function Users() {
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(false)
@@ -34,6 +39,7 @@ export default function Users() {
         <>
             < UserTable users={currentUser} loading={loading} />
             <Pagination
+                style={PaginationStyle}
                 current={currentPage}
                 total={users.length}
                 pageSize={usersPerPage}

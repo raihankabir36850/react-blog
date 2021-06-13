@@ -4,6 +4,11 @@ import PostTitle from "../../components/Post/PostTitle"
 import PostCard from "../../components/Post/PostCard"
 import { Pagination } from "antd"
 
+const PaginationStyle = {
+    textAlign: "center",
+    margin: "20px"
+}
+
 
 export default function Posts() {
     let history = useHistory();
@@ -47,6 +52,7 @@ export default function Posts() {
                 loading={loading}
             />
             <Pagination
+                style={PaginationStyle}
                 current={pageNumber}
                 total={posts.length}
                 onChange={paginate}

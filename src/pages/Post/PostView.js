@@ -39,6 +39,7 @@ export default function PostView() {
     if (loading) {
         return <h2>Loading...</h2>
     }
+
     return (
         <>
             <PostProfile post={post} />

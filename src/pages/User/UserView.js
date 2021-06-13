@@ -4,6 +4,11 @@ import { useParams } from "react-router-dom"
 import UserProfile from "../../components/Profile/UserProfile"
 import PostCard from "../../components/Post/PostCard"
 
+const PaginationStyle = {
+    textAlign: "center",
+    margin: "20px"
+}
+
 export default function UserView() {
 
     const { id } = useParams();
@@ -43,12 +48,12 @@ export default function UserView() {
     const firstIndexOfUserPost = lastIndexOfUserPost - perPage;
     const currentUserPost = userPost.slice(firstIndexOfUserPost, lastIndexOfUserPost);
 
-    if (loading) {
-        return <h2>Loading...</h2>
-    }
-
     const paginate = (page) => {
         setCurrentPage(page);
+    }
+
+    if (loading) {
+        return <h2>Loading...</h2>
     }
 
     return (
@@ -56,6 +61,7 @@ export default function UserView() {
             <UserProfile data={user} />
             <PostCard posts={currentUserPost} />
             <Pagination
+                style={PaginationStyle}
                 current={currentPage}
                 total={userPost.length}
                 pageSize={perPage}
