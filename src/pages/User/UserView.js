@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Pagination } from "antd"
 import { useParams } from "react-router-dom"
 import UserProfile from "../../components/Profile/UserProfile"
 import PostCard from "../../components/Post/PostCard"
@@ -36,7 +37,7 @@ export default function UserView() {
                 })
         }
         fetchUserPost();
-    }, [id])
+    }, [id, currentPage, setCurrentPage])
 
     const lastIndexOfUserPost = currentPage * perPage;
     const firstIndexOfUserPost = lastIndexOfUserPost - perPage;
@@ -45,10 +46,21 @@ export default function UserView() {
     if (loading) {
         return <h2>Loading...</h2>
     }
+
+    const paginate = (page) => {
+        setCurrentPage(page);
+    }
+
     return (
         <>
             <UserProfile data={user} />
             <PostCard posts={currentUserPost} />
+            <Pagination
+                current={currentPage}
+                total={userPost.length}
+                pageSize={perPage}
+                onChange={paginate}
+            />
         </>
     )
 }

@@ -8,7 +8,7 @@ export default function Home() {
 
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPage] = useState(1)
     const postsPerPage = 10;
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export default function Home() {
                 posts={currentPosts}
                 loading={loading}
             />
-            <Link to="/post?page=1">
+            <Link to={`/posts/page/${currentPage}`}>
                 <NormalButton title="Load More" />
             </Link>
         </>
