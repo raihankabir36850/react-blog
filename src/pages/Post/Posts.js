@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
+import LoadingSpin from '../../components/Spin/LoadingSpin'
 import PostTitle from "../../components/Post/PostTitle"
 import PostCard from "../../components/Post/PostCard"
 import { Pagination } from "antd"
@@ -41,7 +42,7 @@ export default function Posts() {
     }
 
     if (loading) {
-        return <h2>Loading...</h2>
+        return <LoadingSpin />
     }
 
     return (

@@ -2,10 +2,7 @@ import React from "react";
 import { Card } from 'antd';
 import { Link } from "react-router-dom"
 
-export default function PostCard({ posts, loading }) {
-    if (loading) {
-        return <h2>Loading...</h2>
-    }
+export default function PostCard({ posts }) {
 
     return (
         <>

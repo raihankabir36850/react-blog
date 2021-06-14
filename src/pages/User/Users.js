@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Pagination } from 'antd';
+import LoadingSpin from "../../components/Spin/LoadingSpin"
 import UserTable from "../../components/Table/UserTable"
 
 const PaginationStyle = {
@@ -34,10 +35,14 @@ export default function Users() {
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUser = users.slice(indexOfFirstUser, indexOfLastUser);
 
+    if (loading) {
+        return <LoadingSpin />
+    }
+
 
     return (
         <>
-            < UserTable users={currentUser} loading={loading} />
+            <UserTable users={currentUser} />
             <Pagination
                 style={PaginationStyle}
                 current={currentPage}

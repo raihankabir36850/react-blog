@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Pagination } from "antd"
 import { useParams } from "react-router-dom"
+import LoadingSpin from "../../components/Spin/LoadingSpin"
 import UserProfile from "../../components/Profile/UserProfile"
 import PostCard from "../../components/Post/PostCard"
 
@@ -53,7 +54,7 @@ export default function UserView() {
     }
 
     if (loading) {
-        return <h2>Loading...</h2>
+        return <LoadingSpin />
     }
 
     return (

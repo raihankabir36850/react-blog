@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Comment from "../../components/Comment/Comment"
+import LoadingSpin from "../../components/Spin/LoadingSpin"
 import PostProfile from "../../components/Post/PostProfile"
 
 export default function PostView() {
@@ -37,7 +38,7 @@ export default function PostView() {
     }, [id])
 
     if (loading) {
-        return <h2>Loading...</h2>
+        return <LoadingSpin />
     }
 
     return (

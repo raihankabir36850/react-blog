@@ -3,10 +3,8 @@ import { Link } from "react-router-dom"
 import styles from "./UserTable.module.css"
 import { columns } from "./UserTableColumn"
 
-export default function UserTable({ users, loading }) {
-    if (loading) {
-        return <h2>Loading...</h2>
-    }
+export default function UserTable({ users }) {
+
     return (
         <>
             <table className={styles.tableSection}>
