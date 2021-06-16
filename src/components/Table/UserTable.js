@@ -8,11 +8,12 @@ import { columns } from "./UserTableColumn"
 export default function UserTable({ users }) {
 
     const sorting = () => {
-        let newArr = users;
-        newArr.sort();
-        console.log(newArr)
-
+        users.sort((a, b) => {
+            return b.id - a.id
+        });
+        console.log(users)
     }
+
 
     return (
         <>
